@@ -38,4 +38,4 @@
 
 
 
-![48FC78EB-9C97-4A00-81FA-C9BFBD76307B](/Users/didi/Downloads/48FC78EB-9C97-4A00-81FA-C9BFBD76307B.png)
+![rgb背景](../imgs/rgb.png)
