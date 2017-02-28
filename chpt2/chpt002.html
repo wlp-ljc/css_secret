@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>边框内圆角</title>
+	<style type="text/css">
+		.demo {
+			height: 200px;
+			display: inline-block;
+			width: 200px;
+			margin: 20px 10px;
+		}
+		.border-radius {
+			background: tan;
+			border-radius: .8em;
+			padding: 1em;
+			box-shadow: 0 0 0 .6em #655;
+			outline: .6em solid #655;
+		}
+		.line-bac {
+			background: linear-gradient(#fb3, #58a);
+		}
+		.line-bac-2 {
+			background: linear-gradient(#fb3 20%, #58a 80%);
+		}
+		.line-bac-half {
+			background: linear-gradient(#fb3 50%, #58a 50%);
+		}
+		.line-bac-size {
+			background: linear-gradient(#fb3 50%, #58a 50%);
+			background-size: 100% 30px;
+		}
+		.line-bac-no-width {
+			background: linear-gradient(#fb3 30%, #58a 30%);
+			background-size: 100% 30px;
+		}
+		.line-bac-no-width-dry {
+			background: linear-gradient(#fb3 30%, #58a 0);
+			background-size: 100% 30px;
+		}
+		.line-bac-right {
+			background: linear-gradient(to right, #fb3 50%, #58a 0);
+			background-size: 30px 100%;
+		}
+		.line-bac-45deg {
+			background: linear-gradient(45deg, #fb3 50%, #58a 0);
+			background-size: 30px 30px;
+		}
+		.line-bac-45deg-zz {
+			background: -webkit-linear-gradient(bottom left, #fb3 25%, #58a 0%, #58a 50%, #fb3 0%, #fb3 75%, #58a 0%);
+			background: -o-linear-gradient(bottom left, #fb3 25%, #58a 0%, #58a 50%, #fb3 0%, #fb3 75%, #58a 0%);
+			background: linear-gradient(to top right, #fb3 25%, #58a 0%, #58a 50%, #fb3 0%, #fb3 75%, #58a 0%);
+			background-size: 42px 42px;
+		}
+		.line-repeat-60deg {
+			background: repeating-linear-gradient(60deg, #fb3, #58a 30px);
+		}
+		.line-repeat-120deg {
+			background: repeating-linear-gradient(120deg, #fb3, #58a 30px);
+		}
+	</style>
+</head>
+<body>
+	<div class="border-radius">
+		I have a nice subtle innerrounding , don't i look pretty?
+	</div>
+	<div class="demo line-bac">	
+	</div>
+	<div class="demo line-bac-2">	
+	</div>
+	<div class="demo line-bac-half">	
+	</div>
+	<div class="demo line-bac-size">	
+	</div>
+	<div class="demo line-bac-no-width">	
+	</div>
+	<div class="demo line-bac-no-width-dry">	
+	</div>
+	<div class="demo line-bac-right">	
+	</div>
+	<div class="demo line-bac-45deg">	
+	</div>
+	<div class="demo line-bac-45deg-zz">	
+	</div>
+	<div class="demo line-repeat-60deg">	
+	</div>
+	<div class="demo line-repeat-120deg">	
+	</div>
+</body>
+</html>

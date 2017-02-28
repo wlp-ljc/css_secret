@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>半透明边框</title>
+	<!-- 
+		HSLA(H,S,L,A)
+		Hue(色调)。0(或360)表示红色，120表示绿色，240表示蓝色，也可取其他数值来指定颜色。取值为：0 - 360
+		S：
+		Saturation(饱和度)。取值为：0.0% - 100.0%
+		L：
+		Lightness(亮度)。取值为：0.0% - 100.0%
+		A：
+		Alpha透明度。取值0~1之间。
+		rgba(166, 218, 220, .5);
+		box-shadow: h-shadow v-shadow blur spread color inset;
+	 -->
+	 <style type="text/css">
+	 	.demo {
+	 		width: 600px;
+	 		margin: 0 auto;
+	 		margin-top: 60px;
+	 	}
+	 	.border-alpha {
+	 		border: 10px solid hsla(0, 23%, 67%, 0.5);
+	 		background: white;
+	 		background-clip: padding-box;
+	 	}
+	 	.border-box-shadow {
+	 		background: yellowgreen;
+	 		box-shadow: 0 0 0 10px #655, 0 0 0 15px deeppink;
+	 	}
+	 	.border-box-shadow-3 {
+	 		background: yellowgreen;
+	 		box-shadow: 0 0 0 10px #655,
+	 					0 0 0 15px deeppink,
+	 					0 2px 5px 15px rgba(0, 0, 0, 0.6)
+	 	}
+	 	.border-outline {
+	 		background: yellowgreen;
+	 		border: 10px solid #655;
+	 		outline: 5px solid deeppink;
+	 		outline-offset: -15px;
+	 	}
+	 	.border-outline-offset {
+	 		background: yellowgreen;
+	 		border: 10px solid #655;
+	 		outline: 1px dashed deeppink;
+	 		outline-offset: -15px;
+	 	}
+	 	.border-outline-offset-bug {
+	 		background: yellowgreen;
+	 		border: 10px solid #655;
+			outline: 5px solid deeppink;
+			border-radius: 5px;
+	 	}
+	 	.back-pos {
+	 		height: 200px;
+	 		background: url(code-position.svg) no-repeat bottom right #58a;
+	 		background-position: right 20px bottom 10px;
+	 	}
+	 	.back-pos-origin {
+	 		height: 200px;
+	 		padding: 10px;
+	 		background: url(code-position.svg) no-repeat bottom right #58a;
+			background-origin: content-box;
+	 	}
+	 </style>
+</head>
+<body>
+	<div class="border-alpha">
+		Can I has some money?
+	</div>
+	<div class="demo border-box-shadow">
+		border-box-shadow
+	</div>
+	<div class="demo border-box-shadow-3">
+		border-box-shadow-3
+	</div>
+	<div class="demo border-outline">
+		border-outline
+	</div>
+	<div class="demo border-outline-offset-bug">
+		border-outline-offset-bug
+	</div>
+	<div class="demo back-pos">
+		Code Pirate
+	</div>
+	<div class="demo back-pos-origin">
+		Code Pirate
+	</div>
+</body>
+</html>
