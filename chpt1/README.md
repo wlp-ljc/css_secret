@@ -25,7 +25,9 @@
       }
 ```
 
-**rgb定于背景**
+## **rgb**
+
+​	css代码定于如下：
 
 ```css
 		.bac-rgb {
@@ -36,6 +38,91 @@
 		}
 ```
 
-
+​	通过浏览器查看div的背景，发现如下图(ps注:background填充content-box 即包含content、padding的内容，不包括margin、border的内容 )
 
 ![rgb背景](../imgs/rgb.png)
+
+## **rgba**
+
+​	css代码定义如下
+
+```css
+		.bac-rgba {
+			background: rgba(255,135,3,0.0);
+		}
+		.bac-rgba-alpha-half {
+			background: rgba(255,135,3,0.5);
+		}
+		.bac-rgba-alpha {
+			background: rgba(255,135,3,1.0);
+		}
+```
+
+​	通过浏览器查看显示的div，发现alpha为0时，背景完全透明，为0.5时，背景颜色有一定的虚化，为1时，与rgb显示相同。
+
+![rgba](../imgs/rgba.png)
+
+## hex
+
+​	css代码如下
+
+```css
+		.bac-hex {
+			background: #FF8703;
+		}
+		.bac-hex-2 {
+			background: #87FF03;
+		}
+```
+
+​	通过浏览器查看显示的div，与rgb显示定义相同。
+
+![hex](../imgs/hex.png)
+
+## hsl
+
+​	rgb与hsl的转换方法可参加[csdn博客]([颜色空间RGB与HSV(HSL)的转换](http://blog.csdn.net/jiangxinyu/article/details/8000999)), 将rgb中的代码转换为hsl，css代码如下([在线转换](http://tools.jb51.net/color/rgb_hex_hsl))
+
+```css
+		.bac-hsl {
+			background: hsl(31, 100.0%, 50.6%);
+		}
+		.bac-hsl-2 {
+			background: hsl(89, 100.0%, 50.6%));
+		}
+```
+
+​	显示内如如下图，hsl与rgb转换后，两者的显示背景是相同的。
+
+![hsl](../imgs/hsl.png)
+
+## hsla
+
+​	hsla是在hsl的基础上，添加了透明度，css代码如下
+
+```css
+		.bac-hsla {
+			background: hsla(31, 100.0%, 50.6%, 0.0);
+		}
+		.bac-hsla-alpha-half {
+			background: hsla(89, 100.0%, 50.6%, 0.5);
+		}
+		.bac-hsla-alpha {
+			background: hsla(89, 100.0%, 50.6%, 1);
+		}
+```
+
+​	显示如下图，与rgba的背景颜色是相同的
+
+![hsla](../imgs/hsla.png)
+
+## 几种方法的使用方式
+
+| 方法名称 |     使用方法      |                   参数说明                   |
+| :--: | :-----------: | :--------------------------------------: |
+| rgb  |  rgb(r,g,b)   |           红、绿、蓝三原色的值，默认取0-255            |
+| rgba | rgba(r,g,b,a) |                a透明度，默认0-1                |
+| hex  |     #RGB      |        红、绿、蓝三原色的值。默认000000-FFFFFF        |
+| hsl  |  hsl(h,s,l)   | h取0-360 0-120 红 120-240 绿 240-360 蓝，s\l 0%-100% |
+| hsla | hsla(h,s,l,a) |                a透明度，默认0-1                |
+
