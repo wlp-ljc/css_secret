@@ -2,109 +2,65 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>text-shadow</title>
+	<title>border-radius</title>
+	<link rel="stylesheet" type="text/css" href="../style/main.css">
 	<style type="text/css">
-		.demo {
-		     background: #666666;
-		     width: 440px;
-		     padding: 30px;
-		     font: bold 55px/100% "微软雅黑", "Lucida Grande", "Lucida Sans", Helvetica, Arial, Sans;;
-		     color: #fff;
-		     text-transform: uppercase;
-		     margin: 20px 0 0;
-		 }
-		.text-shadow {
-			text-shadow: red 0 1px 0;
+		.bac {
+			background: rgba(255,135,3,0.5);
 		}
-		.ts-neon {
-			text-shadow: 0 0 20px red;
+		.br-radius {
+			border-radius: 50%;	
 		}
-		.ts-big-neon {
-			text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 40px #ff00de, 0 0 70px #ff00de;
+		.br-radius-2 {
+			border-radius: 10px 20px 30px 40px / 40px 30px 20px 10px;
 		}
-		.ts-apple {
-			color: #000;
-			text-shadow: 0 1px 1px #fff;
+		.br-radius-3 {
+			border-radius: 10px 20px 30px 40px;
 		}
-		.ts-photo {
-			color: #ccc;
-  			text-shadow: -1px -1px 0 #fff,1px 1px 0 #333,1px 1px 0 #444;
+		.br-radius-4 {
+			border-radius: 10px 20px 30px;
 		}
-		.ts-blury {
-			color: transparent;
-			text-shadow: 0 0 5px #f96;
+		.br-radius-5 {
+			border-radius: 10px 20px;
 		}
-		.ts-emboss {
-			color: transparent;
-			text-shadow:0 0 6px #F96, -1px -1px  #FFF, 1px -1px  #444;
+		.br-radius-6 {
+			border-radius: 10px;
 		}
-		.ts-inset {
-			color: #566F89;
-		  	background: #C5DFF8;
-		  	text-shadow: 1px 1px 0 #E4F1FF;
+		.br-radius-top-left {
+			border-top-left-radius: 20px 40px ;
 		}
-		.ts-stroke {
-			color: #fff;
-			text-shadow: 1px 1px 0 #f96,-1px -1px 0 #f96; 
-		}
-		.ts-3d {
-			color: #fff;
-			text-shadow: 1px 1px rgba(197, 223, 248,0.8),2px 2px rgba(197, 223, 248,0.8),3px 3px rgba(197, 223, 248,0.8),4px 4px rgba(197, 223, 248,0.8),5px 5px rgba(197, 223, 248,0.8),6px 6px rgba(197, 223, 248,0.8);
-		}
-		.ts-3d-order {
-			color: #fff;
-			text-shadow: -1px -1px rgba(197, 223, 248,0.8),-2px -2px rgba(197, 223, 248,0.8),-3px -3px rgba(197, 223, 248,0.8),-4px -4px rgba(197, 223, 248,0.8),-5px -5px rgba(197, 223, 248,0.8),-6px -6px rgba(197, 223, 248,0.8);
-
-		}
-		.ts-retro {
-			color: #eee;
-			text-shadow: 5px 5px 0 #666, 7px 7px 0 #eee;
-		}
-		.ts-anagly {
-			color: rgba(255, 179, 140,0.5);
-			text-shadow: 3px 3px 0 rgba(180,255,0,0.5);
+		.br-radius-top-left-single {
+			border-top-left-radius: 20px;
 		}
 	</style>
 </head>
 <body>
-	<div class="demo text-shadow">
-		TEXT SHADOW
+	<div class="demo bac br-radius">
+		br-radius
 	</div>
-	<div class="demo ts-neon">
-		TEXT SHADOW
+	<div class="demo bac br-radius-2">
+		br-radius-2
 	</div>
-	<div class="demo ts-big-neon">
-		ts-apple
+	<div class="demo bac br-radius-3">
+		br-radius-3
 	</div>
-	<div class="demo ts-apple">
-		apple effect
+	<div class="demo bac br-radius-3">
+		br-radius-3
 	</div>
-	<div class="demo ts-photo">
-		Photoshop Emboss Effect
+	<div class="demo bac br-radius-4">
+		br-radius-4
 	</div>
-	<div class="demo ts-blury">
-		Blurytext Effect
+	<div class="demo bac br-radius-5">
+		br-radius-5
 	</div>
-	<div class="demo ts-emboss">
-		Photoshop Emboss
+	<div class="demo bac br-radius-6">
+		br-radius-6
 	</div>
-	<div class="demo ts-inset">
-		Inset text effect
+	<div class="demo bac br-radius-top-left">
+		br-radius-top-left
 	</div>
-	<div class="demo ts-stroke">
-		Stroke text effect
-	</div>
-	<div class="demo ts-3d">
-		3D text effect
-	</div>	
-	<div class="demo ts-3d-order">
-		3D text effect
-	</div>
-	<div class="demo ts-retro">
-		Vintge/Retro text effect
-	</div>
-	<div class="demo ts-anagly">
-		Vintge/Retro text effect
+	<div class="demo bac br-radius-top-left-single">
+		br-radius-top-left-single
 	</div>
 </body>
 </html>

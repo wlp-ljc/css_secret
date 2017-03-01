@@ -2,22 +2,36 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>DRY 和 可维护的CSS</title>
+	<title>box-shadow</title>
+	<link rel="stylesheet" type="text/css" href="../style/main.css">
 	<style type="text/css">
-		.btn {
-			padding: 6px 16px;
-			border: 1px solid #446d88;
-			background: #58a linear-gradient(#77a0bb, #58a);
-			border-radius: 5px;
-			box-shadow: 0 1px 5px gray;
-			color: white;
-			text-shadow: 0 -1px 1px #335166;
-			font-size: 20px;
-			line-height: 30px;
+		.bac {
+			background: #000;
+			color: #fff;
+		}
+		.bs {
+			box-shadow: 3px 3px 1px #fb3;
+		}
+		.bs-inset {
+			box-shadow: inset 3px 3px 5px #fb3;
+		}
+		.bs-single {
+		   box-shadow: -2px 0 0 green,
+		   0 -2px 0 blue, 
+		   0 2px 0 red, 
+		   2px 0 0 yellow; 
 		}
 	</style>
 </head>
 <body>
-	<div class="btn">YES!</div>
+	<div class="demo bac bs">
+		box-shadow
+	</div>
+	<div class="demo bac bs-inset">
+		box-shadow
+	</div>
+	<div class="demo bac bs-single">
+		box-shadow
+	</div>
 </body>
 </html>
