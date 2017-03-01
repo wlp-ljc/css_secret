@@ -1,6 +1,12 @@
+
+
 # css secret(css 揭秘)
 
 > 本章主要介绍css3的背景知识
+
+[TOC]
+
+
 
 ## rgba 和 hsla
 
@@ -304,9 +310,326 @@ Y-offset: 垂直偏移量，可取正负值，正值阴影在对象底部，负�
 
   设置渐变从上到下。相当于: 180deg。这是默认值，等同于留空不写。
 
-** color-stop 用于指定渐变的起止颜色**
+**color-stop 用于指定渐变的起止颜色**
 
 - color 指定颜色。
 - length 用长度值指定起止色位置。不允许负值 
 - percentage 用百分比指定起止色位置。0 - 100%
 
+通过实例了解linear-gradient 的使用方法
+
+```scss
+.linear-gradinet {
+	background: linear-gradient(#ccc, #000);
+}
+.linear-gradinet-left {
+	background:linear-gradient(to right, #ace, #f96);
+}
+.linear-gradinet-top {
+	background:linear-gradient(#ace, #f96);
+}
+.linear-gradinet-left-top {
+	background:linear-gradient(to bottom right, #ace, #f96);
+}
+.linear-gradinet-left-even {
+	background: linear-gradient(to right, #ace, #f96, #ace, #f96, #ace); 
+}
+.line-gradient-Arb {
+	background: linear-gradient(to right, #ace, #f96 5%, #ace, #f96 95%, #ace); 
+}
+.line-gradient-deg0 {
+	background: -o-linear-gradient(0deg, #ace, #f96);
+}
+.line-gradient-deg45 {
+	background: -o-linear-gradient(45deg, #ace, #f96);
+}
+.line-gradient-deg90 {
+	background: -o-linear-gradient(90deg, #ace, #f96);
+}
+.line-gradient-deg135 {
+	background: -o-linear-gradient(135deg, #ace, #f96);
+}
+.line-gradient-deg180 {
+	background: -o-linear-gradient(180deg, #ace, #f96);
+}
+```
+
+​	linear-gradient可以实现很酷炫的背景效果。
+
+![linear-gradient](../imgs/linear-gradient.png)
+
+**径向渐变**
+
+语法
+
+```css
+radial-gradient(
+  [ [ circle || <length> ]                         [ at <position> ]? , |
+    [ ellipse || [ <length> | <percentage> ]{2} ]  [ at <position> ]? , |
+    [ [ circle | ellipse ] || <extent-keyword> ]   [ at <position> ]? , |
+    at <position> ,
+  ]?
+  <color-stop> [ , <color-stop> ]+
+)
+where <extent-keyword> = closest-corner | closest-side | farthest-corner | farthest-side
+  and <color-stop>     = <color> [ <percentage> | <length> ]
+```
+
+取值
+
+**position确定圆心的位置。如果提供2个参数，第一个表示横坐标，第二个表示纵坐标；如果只提供一个，第二值默认为50%，即center。**
+
++ percentage 百分比表示横、纵坐标值，可取负值。
++ length 长度值表示横、纵坐标值可取负值。
++ left 表示横坐标的值为左侧
++ right 表示横坐标的值为右侧
++ top 表示纵坐标的值为顶部
++ bottom 表示纵坐标的值为底部
++ center 表示横、纵坐标值为中心
+
+**shape 默认的形状**
+
++ circle 指定圆形的径向渐变
++ ellipse 指定椭圆形的径向渐变。
+
+**extent-keyword**
+
++ closest-side 指定径向渐变的半径长度为从圆心到离圆心最近的边
++ closest-corner 指定径向渐变的半径长度为从圆心到离圆心最近的角
++ farthest-side 指定径向渐变的半径长度为从圆心到离圆心最远的边
++ farthest-corner 指定径向渐变的半径长度为从圆心到离圆心最远的角
+
+**circle-size**
+
+- circle接收为size
+
+**ellipse-size**
+
++ ellipse 接受该值作为 size
+
+**color-stop 用于指定渐变的起止颜色**
+
+- color 指定颜色。
+- length 用长度值指定起止色位置。不允许负值 
+- percentage 用百分比指定起止色位置。0 - 100%
+
+通过实例了解radial-gradient 的使用方法
+
+```css
+.radial-gradient {
+  background: radial-gradient(ellipse farthest-corner at 45px 45px , #00FFFF 0%, rgba(0, 0, 255, 0) 50%, #0000FF 95%);
+}
+.radial-gradient-ellipse {
+  background: radial-gradient(ellipse farthest-corner at 180px 47px , #FFFF80 20%, rgba(204, 153, 153, 0.4) 30%, #E6E6FF 60%);
+}
+.radial-gradient-circle {
+  background-image: radial-gradient(farthest-corner at 45px 45px , #FF0000 0%, #0000FF 100%);
+}
+```
+
+​	radial-gradient可以生成多种不同的背景样式，是css3背景利器。
+
+![radial-gradient](../imgs/radial-gradient.png)
+
+
+
+# transform
+
+语法
+
+```css
+   transform ： none | <transform-function> [ <transform-function> ]* 
+```
+
+​	transform-function一般是rotate(旋转)、translate(位移)、skew(倾斜)、scale(缩放)和martrix(矩阵)。
+
+## 笛卡尔坐标系统
+
+> 本部分内容参照[JackNEss](http://www.jackness.org/2014/10/03/css3-%E5%8A%A8%E7%94%BB%E7%9B%B8%E5%85%B3%E5%B1%9E%E6%80%A7-%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86-3d%E5%8F%98%E6%8D%A2/)
+
+在说 3D变换之前必须了解的一个坐标系统，浏览器对元素进行 3D定位、渲染就是遵循这个笛卡尔坐标系统。
+
+### 2D 笛卡尔坐标系统
+
+​	2D 转换是沿着两个坐标轴定义，如下所示。
+
+![2dcoordinate](../imgs/2dcoordinate.png)
+
+​	值得注意的是，y 轴是向下延伸，而非向上延伸，这是由于系统采用的是二维笛卡尔坐标系统。
+
+​	坐标系统的 x 轴会沿着所要转换的元素节点向水平维度延伸， y 轴 则沿着垂直维度延伸。
+​	此坐标系统的原点（图标中的 “（0，0）”）默认位于所要转换的元素的中心。可通过 transform-origin 属性改变。
+
+### 3D 笛卡尔坐标系统
+
+![donghua14](../imgs/3dcoordinate.png)
+
+​	坐标系统的 z 轴同時与 x 和 y 轴垂直。
+​	此坐标系统的原點 (图表中的 “(0,0,0)”) 也默认位于所要转换的元素的中心。同样可通过 transform-origin 属性改变。	
+
+## rotate(旋转)
+
+​	在进行平面转换时，可以使用rotate(angle)实现转换。
+
+​	通过一下实例研究rotate 2D转换
+
+```css
+		.rotate-30deg {
+			transform: rotate(30deg);
+		}
+		.rotate-120deg {
+			transform: rotate(120deg);
+		}
+		.rotate-210deg {
+			transform: rotate(210deg);
+		}
+		.rotate-300deg {
+			transform: rotate(300deg);
+		}
+```
+
+​	rotateX、rotateY、rotateZ和rotate3d通常用于定义立体空间的旋转，即定义3d的旋转。rotateX、rotateY、rotateZ和rotate3d的定义参数如下：
+
+| rotate3d(*x*,*y*,*z*,*angle*) |    定义 3D 旋转。    |
+| :---------------------------: | :-------------: |
+|       rotateX(*angle*)        | 定义沿着 X 轴的 3D 旋转 |
+|       rotateY(*angle*)        | 定义沿着 Y 轴的 3D 旋转 |
+|       rotateZ(*angle*)        | 定义沿着Z 轴的 3D 旋转  |
+
+​	通过一下实例研究rotate 3D转换
+
+```css
+.rotate {
+			transform: rotate(0deg);
+		}
+		.rotate-30deg {
+			transform: rotate(30deg);
+		}
+		.rotate-120deg {
+			transform: rotate(120deg);
+		}
+		.rotate-210deg {
+			transform: rotate(210deg);
+		}
+		.rotate-300deg {
+			transform: rotate(300deg);
+		}
+		.rotateX-45deg {
+			transform: rotateX(45deg);
+		}
+		.rotateX-90deg {
+			transform: rotateX(90deg);
+		}
+		.rotateY-45deg {
+			transform: rotateY(45deg);
+		}
+		.rotateY-90deg {
+			transform: rotateY(90deg);
+		}
+		.rotateZ-45deg {
+			transform: rotateZ(45deg);
+		}
+		.rotateZ-90deg {
+			transform: rotateZ(90deg);
+		}
+		.rotate3d-45deg {
+			transform: rotate3d(1, 1, 1, 45deg);
+		}
+		.rotate3d-90deg {
+			transform: rotate3d(1, 1, 1, 90deg);
+		}
+```
+
+​	效果如下:
+
+![rotate](../imgs/rotate.png)
+
+## translate
+
+​	translate可以实现平移功能，其中translate实现2d位移，translateX、translateX、translateZ和translate3d位3d转换。其使用方法如下：
+
+|    translate(*x*,*y*)    |      定义 2D 转换。      |
+| :----------------------: | :-----------------: |
+| translate3d(*x*,*y*,*z*) |      定义 3D 转换。      |
+|     translateX(*x*)      |   定义转换，只是用 X 轴的值。   |
+|     translateY(*y*)      |   定义转换，只是用 Y 轴的值。   |
+|     translateZ(*z*)      | 定义 3D 转换，只是用 Z 轴的值。 |
+
+​	css代码如下：
+
+```css
+		.translate {
+			transform: translate(30px,30px);
+		}
+		.translateX {
+			transform: translateX(30px);
+		}
+		.translateY {
+			transform: translateY(30px);
+		}
+		.translateZ {
+			transform: translateZ(30px);
+		}
+		.translate3d {
+			transform: translate3d(30px,30px,30px);
+		}
+```
+
+
+
+​	效果如下
+
+​	![translate](../imgs/translate.png)
+
+
+
+## scale
+
+​	scale可以实现缩放功能，其中scale实现2d缩放，scaleX、scaleY、scaleZ和scale3d实现3d缩放转换。其使用方法如下：
+
+|    scale(*x*,*y*)    |      定义 2D 缩放转换。       |
+| :------------------: | :--------------------: |
+| scale3d(*x*,*y*,*z*) |      定义 3D 缩放转换。       |
+|     scaleX(*x*)      |   通过设置 X 轴的值来定义缩放转换。   |
+|     scaleY(*y*)      |   通过设置 Y 轴的值来定义缩放转换。   |
+|     scaleZ(*z*)      | 通过设置 Z 轴的值来定义 3D 缩放转换。 |
+
+​	css代码如下：
+
+```css
+		.scale-small {
+			transform: scale(0.5, 0.5);
+		}
+		.scale-big {
+			transform: scale(1.2, 1.2);
+		}
+		.scaleX {
+			transform: scaleX(0.5);
+		}
+		.scaleY {
+			transform: scaleY(0.5);
+		}
+		.scaleZ {
+			transform: scaleZ(1.2);
+		}
+		.scale3d {
+			transform: scale3d(0.5, 0.5, 1.2);
+		}
+```
+
+​	效果如下：
+
+![scale](../imgs/scale.png)
+
+## skew
+
+​	skew可以实现缩放功能，其中skew、scaleX、scaleY都可以实现倾斜功能。其使用方法如下
+
+| skew(*x-angle*,*y-angle*) | 定义沿着 X 和 Y 轴的 2D 倾斜转换。 |
+| :-----------------------: | :--------------------: |
+|      skewX(*angle*)       |   定义沿着 X 轴的 2D 倾斜转换。   |
+|      skewY(*angle*)       |   定义沿着 Y 轴的 2D 倾斜转换。   |
+
+## matrix
+
+​		

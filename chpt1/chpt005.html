@@ -3,8 +3,127 @@
 <head>
 	<meta charset="UTF-8">
 	<title>gradient渐变</title>
+	<link rel="stylesheet" type="text/css" href="../style/main.css">
+	<style type="text/css">
+		.linear-gradinet {
+			background: -webkit-linear-gradient(#ccc, #000);
+			background: -o-linear-gradient(#ccc, #000);
+			background: linear-gradient(#ccc, #000);
+		}
+
+		.linear-gradinet-left {
+			background:-webkit-linear-gradient(left, #ace, #f96);
+			background:-o-linear-gradient(left, #ace, #f96);
+			background:linear-gradient(to right, #ace, #f96);
+		}
+
+		.linear-gradinet-top {
+			background:-webkit-linear-gradient(#ace, #f96);
+			background:-o-linear-gradient(#ace, #f96);
+			background:linear-gradient(#ace, #f96);
+		}
+
+		.linear-gradinet-left-top {
+			background:-webkit-linear-gradient(top left, #ace, #f96);
+			background:-o-linear-gradient(top left, #ace, #f96);
+			background:linear-gradient(to bottom right, #ace, #f96);/*new gradient for Webkit*/
+		}
+
+		.linear-gradinet-left-even {
+			background: -webkit-linear-gradient(left, #ace, #f96, #ace, #f96, #ace);
+			background: -o-linear-gradient(left, #ace, #f96, #ace, #f96, #ace);
+			background: linear-gradient(to right, #ace, #f96, #ace, #f96, #ace); 
+		}
+
+		.line-gradient-Arb {
+			background: -webkit-linear-gradient(left, #ace, #f96 5%, #ace, #f96 95%, #ace);
+			background: -o-linear-gradient(left, #ace, #f96 5%, #ace, #f96 95%, #ace);
+			background: linear-gradient(to right, #ace, #f96 5%, #ace, #f96 95%, #ace); 
+		}
+		.line-gradient-deg0 {
+		  background: -moz-linear-gradient(0deg, #ace, #f96);
+		  background: -webkit-gradient(linear,0 50%,100% 50%,from(#ace),to(#f96));
+		  background: -webkit-linear-gradient(0deg, #ace, #f96);
+		  background: -o-linear-gradient(0deg, #ace, #f96);
+		}
+		    
+		.line-gradient-deg45 {
+		  background: -moz-linear-gradient(45deg, #ace, #f96);
+		  background: -webkit-gradient(linear,0 100%,100% 0%,from(#ace),to(#f96));
+		  background: -webkit-linear-gradient(45deg, #ace, #f96);
+		  background: -o-linear-gradient(45deg, #ace, #f96);
+		}
+		.line-gradient-deg90 {
+		  background: -moz-linear-gradient(90deg, #ace, #f96);
+		  background: -webkit-gradient(linear,50% 100%,50% 0%,from(#ace),to(#f96));
+		  background: -webkit-linear-gradient(90deg, #ace, #f96);
+		  background: -o-linear-gradient(90deg, #ace, #f96);
+		}
+		.line-gradient-deg135 {
+		  background: -moz-linear-gradient(135deg, #ace, #f96);
+		  background: -webkit-gradient(linear,100% 100%,0 0,from(#ace),to(#f96));
+		  background: -webkit-linear-gradient(135deg, #ace, #f96);
+		  background: -o-linear-gradient(135deg, #ace, #f96);
+		}
+		.line-gradient-deg180 {
+		  background: -moz-linear-gradient(180deg, #ace, #f96);
+		  background: -webkit-gradient(linear,100% 50%,0 50%,from(#ace),to(#f96));
+		  background: -webkit-linear-gradient(180deg, #ace, #f96);
+		  background: -o-linear-gradient(180deg, #ace, #f96);
+		}
+		.radial-gradient {
+			background: radial-gradient(ellipse farthest-corner at 45px 45px , #00FFFF 0%, rgba(0, 0, 255, 0) 50%, #0000FF 95%);
+		}
+		.radial-gradient-ellipse {
+			background: radial-gradient(ellipse farthest-corner at 180px 47px , #FFFF80 20%, rgba(204, 153, 153, 0.4) 30%, #E6E6FF 60%);
+		}
+		.radial-gradient-circle {
+   			background-image: radial-gradient(farthest-corner at 45px 45px , #FF0000 0%, #0000FF 100%);
+		}
+	</style>
 </head>
 <body>
-	
+	<div class="demo linear-gradinet">
+		linear-gradinet
+	</div>
+	<div class="demo linear-gradinet-left">
+		linear-gradinet-left
+	</div>
+	<div class="demo linear-gradinet-top">
+		linear-gradinet-top
+	</div>
+	<div class="demo linear-gradinet-left-top">
+		linear-gradinet-left-top
+	</div>
+	<div class="demo linear-gradinet-left-even">
+		linear-gradinet-left-even
+	</div>
+	<div class="demo line-gradient-Arb">
+		line-gradient-Arb
+	</div>
+	<div class="demo line-gradient-deg0">
+		line-gradient-deg0
+	</div>
+	<div class="demo line-gradient-deg45">
+		line-gradient-deg45
+	</div>
+	<div class="demo line-gradient-deg90">
+		line-gradient-deg90
+	</div>
+	<div class="demo line-gradient-deg135">
+		line-gradient-deg135
+	</div>
+<!-- 	<div class="demo line-gradient-deg180">
+		line-gradient-deg180
+	</div> -->
+	<div class="demo radial-gradient">
+		radial-gradient
+	</div>
+	<div class="demo radial-gradient-ellipse">
+		radial-gradient-ellipse
+	</div>
+	<div class="demo radial-gradient-circle">
+		radial-gradient-circle
+	</div>
 </body>
 </html>
