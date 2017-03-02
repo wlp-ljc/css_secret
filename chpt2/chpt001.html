@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>半透明边框</title>
+	<title>半透明边框、多重边框</title>
 	<link rel="stylesheet" type="text/css" href="../style/main.css">
 	 <style type="text/css">
 		body {
@@ -19,31 +19,33 @@
 	 	}
 	 	.border-box-shadow {
 	 		background: yellowgreen;
+	 		box-shadow: 0 0 0 10px #655;
+	 	}
+	 	.border-box-shadow-2 {
+	 		background: yellowgreen;
 	 		box-shadow: 0 0 0 10px #655, 0 0 0 15px deeppink;
 	 	}
 	 	.border-box-shadow-3 {
 	 		background: yellowgreen;
 	 		box-shadow: 0 0 0 10px #655,
 	 					0 0 0 15px deeppink,
-	 					0 2px 5px 15px rgba(0, 0, 0, 0.6)
+	 					0 2px 5px 15px rgba(0, 255, 0, 0.6)
 	 	}
 	 	.border-outline {
 	 		background: yellowgreen;
 	 		border: 10px solid #655;
 	 		outline: 5px solid deeppink;
-	 		outline-offset: -15px;
 	 	}
 	 	.border-outline-offset {
 	 		background: yellowgreen;
-	 		border: 10px solid #655;
-	 		outline: 1px dashed deeppink;
+	 		outline: 1px dashed #fff;
 	 		outline-offset: -15px;
 	 	}
-	 	.border-outline-offset-bug {
+	 	.border-outline-bug {
 	 		background: yellowgreen;
 	 		border: 10px solid #655;
 			outline: 5px solid deeppink;
-			border-radius: 5px;
+			border-radius: 20px;
 	 	}
 	 	.back-pos {
 	 		height: 200px;
@@ -65,23 +67,29 @@
 	<div class="demo-block border-alpha">
 		border-alpha
 	</div>
-	<!-- <div class="demo border-box-shadow">
+	<div class="demo-block border-box-shadow">
 		border-box-shadow
 	</div>
-	<div class="demo border-box-shadow-3">
+	<div class="demo-block border-box-shadow-2">
+		border-box-shadow-2
+	</div>
+	<div class="demo-block border-box-shadow-3">
 		border-box-shadow-3
 	</div>
-	<div class="demo border-outline">
+	<div class="demo-block border-outline">
 		border-outline
 	</div>
-	<div class="demo border-outline-offset-bug">
-		border-outline-offset-bug
+	<div class="demo-block border-outline-offset">
+		border-outline-offset
 	</div>
-	<div class="demo back-pos">
+	<div class="demo-block border-outline-bug">
+		border-outline-bug
+	</div>
+	<div class="demo-block back-pos">
 		Code Pirate
 	</div>
-	<div class="demo back-pos-origin">
+	<div class="demo-block back-pos-origin">
 		Code Pirate
-	</div> -->
+	</div>
 </body>
 </html>
