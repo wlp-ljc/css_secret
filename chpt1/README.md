@@ -632,4 +632,10 @@ where <extent-keyword> = closest-corner | closest-side | farthest-corner | farth
 
 ## matrix
 
-​		
+​	matrix、matrix3d矩阵可以实现平移、旋转和缩放等三种变换。
+
+|     matrix(*n*,*n*,*n*,*n*,*n*,*n*)      |     定义 2D 转换，使用六个值的矩阵。     |
+| :--------------------------------------: | :------------------------: |
+| matrix3d(*n*,*n*,*n*,*n*,*n*,*n*,*n*,*n*,*n*,*n*,*n*,*n*,*n*,*n*,*n*,*n*) | 定义 3D 转换，使用 16 个值的 4x4 矩阵。 |
+
+​	martrix矩阵的生成和计算方法可以参见[[杨名天吓](http://my.csdn.net/henren555)](http://blog.csdn.net/henren555/article/details/9699449/).
