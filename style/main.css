@@ -10,3 +10,11 @@
 	line-height: 200px;
 	display: inline-block;
 }
+
+.demo-block {
+	width: 200px;
+	height: 200px;
+	margin: 40px auto;
+	text-align: center;
+	line-height: 200px;
+}

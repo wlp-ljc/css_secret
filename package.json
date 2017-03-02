@@ -1,0 +1,23 @@
+{
+  "name": "css_secret",
+  "version": "1.0.0",
+  "description": "# 背景与边框",
+  "main": "index.js",
+  "dependencies": {
+    "http-server": "^0.9.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "http-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wlp-ljc/css_secret.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wlp-ljc/css_secret/issues"
+  },
+  "homepage": "https://github.com/wlp-ljc/css_secret#readme"
+}

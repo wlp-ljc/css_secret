@@ -3,26 +3,17 @@
 <head>
 	<meta charset="UTF-8">
 	<title>半透明边框</title>
-	<!-- 
-		HSLA(H,S,L,A)
-		Hue(色调)。0(或360)表示红色，120表示绿色，240表示蓝色，也可取其他数值来指定颜色。取值为：0 - 360
-		S：
-		Saturation(饱和度)。取值为：0.0% - 100.0%
-		L：
-		Lightness(亮度)。取值为：0.0% - 100.0%
-		A：
-		Alpha透明度。取值0~1之间。
-		rgba(166, 218, 220, .5);
-		box-shadow: h-shadow v-shadow blur spread color inset;
-	 -->
+	<link rel="stylesheet" type="text/css" href="../style/main.css">
 	 <style type="text/css">
-	 	.demo {
-	 		width: 600px;
-	 		margin: 0 auto;
-	 		margin-top: 60px;
-	 	}
+		body {
+			background-image:url(../imgs/bg1.jpg);
+		}
+		.border-alpha-warning {
+			border: 10px solid hsla(0, 0%, 100%, 0.5);
+	 		background: white;
+		}
 	 	.border-alpha {
-	 		border: 10px solid hsla(0, 23%, 67%, 0.5);
+	 		border: 10px solid hsla(0, 0%, 100%, 0.5);
 	 		background: white;
 	 		background-clip: padding-box;
 	 	}
@@ -68,10 +59,13 @@
 	 </style>
 </head>
 <body>
-	<div class="border-alpha">
-		Can I has some money?
+	<div class="demo-block border-alpha-warning">
+		border-alpha-warning
 	</div>
-	<div class="demo border-box-shadow">
+	<div class="demo-block border-alpha">
+		border-alpha
+	</div>
+	<!-- <div class="demo border-box-shadow">
 		border-box-shadow
 	</div>
 	<div class="demo border-box-shadow-3">
@@ -88,6 +82,6 @@
 	</div>
 	<div class="demo back-pos-origin">
 		Code Pirate
-	</div>
+	</div> -->
 </body>
 </html>
