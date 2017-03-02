@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>半透明边框、多重边框</title>
+	<title>半透明边框、多重边框、背景定位和边框内圆角</title>
 	<link rel="stylesheet" type="text/css" href="../style/main.css">
 	 <style type="text/css">
 		body {
@@ -48,15 +48,28 @@
 			border-radius: 20px;
 	 	}
 	 	.back-pos {
-	 		height: 200px;
+	 		padding: 10px 20px;
 	 		background: url(code-position.svg) no-repeat bottom right #58a;
 	 		background-position: right 20px bottom 10px;
 	 	}
 	 	.back-pos-origin {
-	 		height: 200px;
-	 		padding: 10px;
+	 		padding: 10px 20px;
 	 		background: url(code-position.svg) no-repeat bottom right #58a;
 			background-origin: content-box;
+	 	}
+	 	.something-meaningful {
+	 		background: #655;
+	 		padding: .8em;
+	 	}
+	 	.something-meaningful > div {
+	 		background: tan;
+	 		border-radius: .8em;
+	 	}
+	 	.new-something-meaningful {
+	 		background: tan;
+	 		border-radius: .8em;
+	 		box-shadow:  0 0 0 .6em #655;
+	 		outline: .6em solid #655;
 	 	}
 	 </style>
 </head>
@@ -85,11 +98,19 @@
 	<div class="demo-block border-outline-bug">
 		border-outline-bug
 	</div>
-	<div class="demo-block back-pos">
-		Code Pirate
+	<div class="demo-normal back-pos">
+		Code Pirate back-pos
 	</div>
-	<div class="demo-block back-pos-origin">
-		Code Pirate
+	<div class="demo-normal back-pos-origin">
+		Code Pirate back-pos-origin
+	</div>
+	<div class="demo-block something-meaningful ">
+		<div>
+		   old solution
+		</div>
+	</div>
+	<div class="demo-block new-something-meaningful">
+		new solution
 	</div>
 </body>
 </html>

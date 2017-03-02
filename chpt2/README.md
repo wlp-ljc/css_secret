@@ -99,6 +99,60 @@
 + outline 在border-radius会产生间隙
 + outline 可以使offset产生内虚线
 
-## 灵活的背景定位
+## 3. 灵活的背景定位
 
-​	
+​	可以使用css3中的background-position、background-origin实现背景定位。
+
+​	实例代码如下
+
+```css
+.back-pos {
+	background: url(code-position.svg) no-repeat bottom right #58a;
+	background-position: right 20px bottom 10px;
+}
+.back-pos-origin {
+	padding-right: 10px 20px;
+	background: url(code-position.svg) no-repeat bottom right #58a;
+	background-origin: content-box;
+}
+```
+
+​	效果如下：
+
+​       ![background-origin](../imgs/background-origin.png)                         ![background-position](../imgs/background-position.png)
+
+## 4. 边框内圆角
+
+​	有时需要一个容器，内侧有圆角，边框或描边在外部仍保持直角的形状。一般可以使用两个元素完成
+
+```css
+.something-meaningful {
+	background: #655;
+	padding: .8em;
+}
+.something-meaningful > div {
+	background: tan;
+	border-radius: .8em;
+}
+<div class="demo-block something-meaningful ">
+	<div>
+		old solution
+	</div>
+</div>
+```
+
+​	效果如下：
+
+​                      ![new-radius](../imgs/new-radius.png)                                         ![old-radius](../imgs/old-radius.png)      
+
+​	使用css3的box-shadow、outline 也可以实现同样的效果。
+
+```css
+.new-something-meaningful {
+  	background: tan;
+  	border-radius: .8em;
+    box-shadow:  0 0 0 .6em #655;
+  	outline: .6em solid #655;
+}
+```
+

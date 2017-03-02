@@ -18,3 +18,9 @@
 	text-align: center;
 	line-height: 200px;
 }
+
+.demo-normal {
+	width: 300px;
+	height: 300px;
+	margin: 40px auto;
+}
