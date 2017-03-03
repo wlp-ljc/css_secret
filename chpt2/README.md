@@ -1,8 +1,12 @@
-# 第二章 背景与边框
+# 背景与边框
 
 > ​	本章内容主要是css揭秘(css-secret)的学习笔记。
 
-## 1. 半透明边框
+[TOC]
+
+
+
+## 半透明边框
 
 ​	css3引入了hsla和rgba后，可以利用透明度的特性，生成半透明边框。
 
@@ -28,9 +32,7 @@
 
 ​			  **未实现透明边框**                                                                                       **实现透明边框**
 
-
-
-## 2. 多重边框
+## 多重边框
 
 > ​	可以使用box-shadow和outline实现多重边框。
 
@@ -99,7 +101,7 @@
 + outline 在border-radius会产生间隙
 + outline 可以使offset产生内虚线
 
-## 3. 灵活的背景定位
+## 灵活的背景定位
 
 ​	可以使用css3中的background-position、background-origin实现背景定位。
 
@@ -121,7 +123,7 @@
 
 ​       ![background-origin](../imgs/background-origin.png)                         ![background-position](../imgs/background-position.png)
 
-## 4. 边框内圆角
+## 边框内圆角
 
 ​	有时需要一个容器，内侧有圆角，边框或描边在外部仍保持直角的形状。一般可以使用两个元素完成
 
@@ -155,4 +157,213 @@
   	outline: .6em solid #655;
 }
 ```
+
+## 条纹背景
+
+​	使用linear-gradient可以实现水平、垂直、斜向的条纹背景。
+
+​	案例代码如下：
+
+```css
+.horizontal-stripe {
+	background: linear-gradient(#fb3 50%, #58a 50%);
+	background-size: 100% 30px;
+}
+.horizontal-stripe-three {
+	background: linear-gradient(#fb3 33.3%, #58a 0, #58a 66.6%, yellowgreen 0);;
+	background-size: 100% 45px;
+}
+.vertical-stripe {
+	background: linear-gradient(90deg /* to right */, #fb3 50%, #58a 50%);
+	background-size: 30px 100%;
+}
+.vertical-stripe-three {
+	background: linear-gradient(90deg, #fb3 33.3%, #58a 0, #58a 66.6%, yellowgreen 0);;
+	background-size: 45px 100%;
+}
+.diagonal-stripe-45deg{
+	background: repeating-linear-gradient(45deg, #fb3, #fb3 15px, #58a 0, #58a 30px)
+}
+.diagonal-stripe-60deg{
+	background: repeating-linear-gradient(60deg, #fb3, #fb3 15px, #58a 0, #58a 30px)
+}
+.same-color-stripe {
+	background: repeating-linear-gradient(30deg, #79b, #79b 15px, #58a 0, #58a 30px);
+}
+.smale-color-stripe-better {
+	background: #58a;
+	background-image: repeating-linear-gradient(30deg, hsla(0, 0%, 100%, .1), hsla(0, 0%, 100%, .1) 15px, transparent, transparent 30px);
+}
+```
+
+
+
+​	效果图如下, 使用linear-gradient可以实现多种的条纹效果。
+
+![stripe](../imgs/stripe.png)
+
+## 复杂的背景图案
+
+​	使用css渐变可以生成网格、波点和棋盘等多种背景图盘效果。
+
+### 网格
+
+​	网格可以利用水平波纹、垂直波纹的叠加阐述网格效果。
+
+```css
+.grid {
+	background: white;
+	background-image: linear-gradient(90deg, rgba(200, 0, 0, .5) 50%, transparent 0),
+					  linear-gradient(rgba(200, 0, 0, .5) 50%, transparent 0);
+	background-size: 30px 30px, 30px 30px;
+}
+```
+
+​	background-image中linear-gradient(90deg, rgba(200, 0, 0, .5) 50%, transparent 0) 生成垂直波纹，linear-gradient(rgba(200, 0, 0, .5) 50%, transparent 0)生成水平波纹，垂直波纹与水平波纹重合形成网格背景。
+
+![grid-line-bold](../imgs/grid-line-bold.png)                   ![grid-line](../imgs/grid.png)	![grid](../imgs/grid-line.png)
+
+​	**grid-bold-line**                						**grid**								**grid-line**		
+
+​	有时，希望格子的大小可以调整，而网格线条粗细同时保持固定，可以使用如下代码实现
+
+```css
+.grid-line {
+	background: #58a;
+	background-image: linear-gradient(90deg, white 1px, transparent 0),
+					  linear-gradient(white 1px, transparent 0);
+	background-size: 30px 30px;
+}
+```
+
+​	grid-line中background-image中前一个线性渐变生成垂直网格线，后一个渐变实现水平网格线。两者形成了一个同色下网格模型。甚至，在某些情况下，通过background-size生成不同的网格线。
+
+```css
+.grid-line-bold {
+	background: #58a;
+	background-image: linear-gradient( white 2px, transparent 0),
+					  linear-gradient(90deg, white 2px, transparent 0),
+					  linear-gradient(hsla(0, 0%, 100%, .3) 1px, transparent 0),
+					  linear-gradient(90deg, hsla(0, 0%, 100%, .3) 1px, transparent 0);
+  background-size: 75px 75px, 75px 75px,
+					15px 15px, 15px 15px;
+}
+```
+
+
+
+### 波点
+
+​	径向渐变可以实现波点效果。
+
+```css
+.dots {
+	background: #655;
+	background-image: radial-gradient(tan 30%, transparent 0);
+	background-size: 30px 30px;
+}
+.dots-tile {
+  	background: #655;
+  	background-image: radial-gradient(tan 30%, transparent 0),
+   	 				  radial-gradient(tan 30%, transparent 0);
+  	background-size: 30px 30px;
+  	background-position: 0 0, 15px 15px;
+}	
+```
+
+​	dots类使用radial-gradient实现了波点效果，但是dots的波点效果不是可以很实用，dots-tile结合使用background-position实现更好的波点效果。
+
+​	![dots](../imgs/dots.png)
+
+### 棋盘	
+
+可以使lineear-gradietn构造复杂的棋盘效果。
+
+```css
+.checkerboard {
+	background: #eee;
+	background-image: linear-gradient(45deg, #bbb 25%, transparent 0), 
+		linear-gradient(45deg,  transparent 75% ,#bbb 0), 
+		linear-gradient(45deg, #bbb 25%, transparent 0), 
+		linear-gradient(45deg,  transparent 75% ,#bbb 0);
+	background-position: 0 0, 15px 15px, 15px 15px, 30px 30px;
+	background-size: 30px 30px;
+}
+.checkerboard-better {
+	background: #eee;
+	background-image: linear-gradient(45deg, rgba(0, 0, 0, .25) 25%, transparent 0, 						transparent 75%, rgba(0, 0, 0, .25) 0), 
+		linear-gradient(45deg, rgba(0, 0, 0, .25) 25%, transparent 0, transparent 75%, 						rgba(0, 0, 0, .25) 0) ;
+	background-position: 0 0, 15px 15px;
+	background-size: 30px 30px;
+}
+```
+
+效果如下：
+
+![checkerboard](../imgs/checkerboard.png)
+
+## 伪随机背景
+
+​	可以使用质数原则生成伪随机化的背景。
+
+```css
+.more-random-bac {
+	background: hsl(20, 40%, 90%);
+	background-image: 
+			linear-gradient(90deg, #fb3 11px, transparent 0),
+			linear-gradient(90deg, #ab4 23px, transparent 0), 
+			linear-gradient(90deg, #655 41px, transparent 0);
+	background-size: 41px 100%, 61px 100%, 83px 100%;			
+}
+```
+
+​	效果如下
+
+![random-bg](../imgs/random-bg.png)	
+
+## 连续的图像边框
+
+​	传统的图像边框方法如下：
+
+```css
+.something-meaningful {
+	background: url(../imgs/bg1.jpg);
+	background-size: cover;
+	padding: 1em;
+}
+.something-meaningful > div{
+	background: white;
+	padding: 1em;
+}
+<div class="something-meaningful">
+	<div>
+		I have a nice stone art border, don't I look pretty?
+	</div>
+</div>
+
+```
+
+​	css3的实现css代码如下：
+
+```css
+		.continuity-bac-better {
+			padding: 1em;
+			border: 1em solid transparent;
+			background: linear-gradient(white, white), url(../imgs/bg1.jpg);
+			background-size: cover;
+			background-clip: padding-box, border-box;
+			background-origin: border-box;
+		}
+		.continuity-bac-best {
+			padding: 1em;
+			border: 1em solid transparent;
+			background: 
+			     linear-gradient(white, white) padding-box, 
+			     url(../imgs/bg1.jpg) border-box 0 / cover;
+		}
+```
+
+​	效果如下：
+
+![continuity-bac](../imgs/continuity-bac.png)
 

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>伪随机背景、连续的图像边框</title>
+	<link rel="stylesheet" type="text/css" href="../style/main.css">
+	<style type="text/css">
+		.tile-bac {
+			background: linear-gradient(90deg, #fb3 15%, #655 0, #655 40%, #ab4 0, #ab4 65%, hsl(20, 40%, 90%) 0);
+			background-size: 80px 100%;
+		}
+		.random-bac {
+			background: 
+			     linear-gradient(90deg, #fb3 10px, transparent 0),
+			     linear-gradient(90deg, #ab4 20px, transparent 0), 
+			     linear-gradient(90deg, #655 20px, transparent 0);
+			background-size: 80px 100%, 60px 100%, 40px 100%;
+		}
+		.more-random-bac {
+			background: hsl(20, 40%, 90%);
+			background-image: 
+			     linear-gradient(90deg, #fb3 11px, transparent 0),
+			     linear-gradient(90deg, #ab4 23px, transparent 0), 
+			     linear-gradient(90deg, #655 41px, transparent 0);
+			background-size: 41px 100%, 61px 100%, 83px 100%;			
+		}
+		/*连续的图像边框*/
+		/*old*/
+		.something-meaningful {
+			background: url(../imgs/bg1.jpg);
+			background-size: cover;
+			padding: 1em;
+		}
+		.something-meaningful > div{
+			background: white;
+			padding: 1em;
+		}
+		/*new*/
+		.continuity-bac {
+			padding: 1em;
+			border: 1em solid transparent;
+			background: linear-gradient(white, white), url(../imgs/bg1.jpg);
+			background-size: cover;
+			background-clip: padding-box, border-box;
+		}
+		.continuity-bac-better {
+			padding: 1em;
+			border: 1em solid transparent;
+			background: linear-gradient(white, white), url(../imgs/bg1.jpg);
+			background-size: cover;
+			background-clip: padding-box, border-box;
+			background-origin: border-box;
+		}
+		.continuity-bac-best {
+			padding: 1em;
+			border: 1em solid transparent;
+			background: 
+			     linear-gradient(white, white) padding-box, 
+			     url(../imgs/bg1.jpg) border-box 0 / cover;
+		}
+		.envelop {
+			padding: 1em;
+			border: 1em solid transparent;
+			background:  linear-gradient(white, white) padding-box,  
+			             repeating-linear-gradient(-45deg, red 0, red 12.5%, transparent 0, transparent 25%, #58a 0, #58a 37.5%, transparent 0, transparent 50%) 0 / 5em 5em;
+		}
+		.envelop-bgimage {
+			padding: 1em;
+			border: 16px solid transparent;
+			border-image: 16 repeating-linear-gradient(-45deg, 
+								red 0, red 1em,
+								transparent 0, transparent 2em, 
+								#58a 0, #58a 3em , 
+								transparent 0, transparent 4em);
+		}
+		@keyframes ants {
+			to {
+				background-position: 100%;
+			}
+		}
+
+		.marching-ants {
+			padding: 1em; 
+			border: 1px solid transparent;
+			background: linear-gradient(white, white) padding-box,
+						repeating-linear-gradient(-45deg,
+						            black 0, black 25%, 
+						            white 0, white 50%) 0 / .6em .6em;
+			animation: ants 12s linear infinite;
+		}
+	</style>
+</head>
+<body>
+	<!-- 伪随机背景 -->
+	<div class="demo-random tile-bac"></div>
+	<div class="demo-random random-bac"></div>
+	<div class="demo-random more-random-bac"></div>
+	<!-- 连续的图像边框 -->
+	<div class="something-meaningful"><div>I have a nice stone art border, don't I look pretty?</div></div>
+	<div class="demo-continue continuity-bac">I have a nice stone art border, don't I look pretty?</div>
+	<div class="demo-continue continuity-bac-better">I have a nice stone art border, don't I look pretty?</div>
+	<div class="demo-continue continuity-bac-best">I have a nice stone art border, don't I look pretty?</div>
+	<div class="demo-continue envelop">I have a nice stone art border, don't I look pretty?</div>
+	<div class="demo-continue envelop-bgimage">I have a nice stone art border, don't I look pretty?</div>
+	<div class="demo-continue envelop-bgimage">I have a nice stone art border, don't I look pretty?</div>
+	<div class="demo-continue marching-ants">I have a nice stone art border, don't I look pretty?</div>
+
+</body>
+</html>

@@ -24,3 +24,16 @@
 	height: 300px;
 	margin: 40px auto;
 }
+
+.demo-random{
+	height: 200px;
+	width: 1200px;
+	margin: 40px auto;
+}
+
+.demo-continue {
+	width: 200px;
+	height: 200px;
+	margin: 40px auto;
+	text-align: center;
+}

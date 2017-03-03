@@ -2,89 +2,154 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>边框内圆角</title>
+	<title>条纹背景、图案背景</title>
+	<link rel="stylesheet" type="text/css" href="../style/main.css">
 	<style type="text/css">
-		.demo {
-			height: 200px;
-			display: inline-block;
-			width: 200px;
-			margin: 20px 10px;
-		}
-		.border-radius {
-			background: tan;
-			border-radius: .8em;
-			padding: 1em;
-			box-shadow: 0 0 0 .6em #655;
-			outline: .6em solid #655;
-		}
-		.line-bac {
-			background: linear-gradient(#fb3, #58a);
-		}
-		.line-bac-2 {
-			background: linear-gradient(#fb3 20%, #58a 80%);
-		}
-		.line-bac-half {
-			background: linear-gradient(#fb3 50%, #58a 50%);
-		}
-		.line-bac-size {
+		.horizontal-stripe {
+			background: -webkit-linear-gradient(#fb3 50%, #58a 50%);
+			background: -o-linear-gradient(#fb3 50%, #58a 50%);
 			background: linear-gradient(#fb3 50%, #58a 50%);
 			background-size: 100% 30px;
 		}
-		.line-bac-no-width {
-			background: linear-gradient(#fb3 30%, #58a 30%);
-			background-size: 100% 30px;
+		.horizontal-stripe-three {
+			background: -webkit-linear-gradient(#fb3 33.3%, #58a 0, #58a 66.6%, yellowgreen 0);
+			background: -o-linear-gradient(#fb3 33.3%, #58a 0, #58a 66.6%, yellowgreen 0);
+			background: linear-gradient(#fb3 33.3%, #58a 0, #58a 66.6%, yellowgreen 0);;
+			background-size: 100% 45px;
 		}
-		.line-bac-no-width-dry {
-			background: linear-gradient(#fb3 30%, #58a 0);
-			background-size: 100% 30px;
-		}
-		.line-bac-right {
-			background: linear-gradient(to right, #fb3 50%, #58a 0);
+		.vertical-stripe {
+			background: linear-gradient(90deg /* to right */, #fb3 50%, #58a 50%);
 			background-size: 30px 100%;
 		}
-		.line-bac-45deg {
-			background: linear-gradient(45deg, #fb3 50%, #58a 0);
+		.vertical-stripe-three {
+			background: linear-gradient(90deg, #fb3 33.3%, #58a 0, #58a 66.6%, yellowgreen 0);;
+			background-size: 45px 100%;
+		}
+		.diagonal-stripe-45deg{
+			background: repeating-linear-gradient(45deg, #fb3, #fb3 15px, #58a 0, #58a 30px)
+		}
+		.diagonal-stripe-60deg{
+			background: repeating-linear-gradient(60deg, #fb3, #fb3 15px, #58a 0, #58a 30px)
+		}
+		.same-color-stripe {
+			background: repeating-linear-gradient(30deg, #79b, #79b 15px, #58a 0, #58a 30px);
+		}
+		.smale-color-stripe-better {
+			background: #58a;
+			background-image: repeating-linear-gradient(30deg, hsla(0, 0%, 100%, .1), hsla(0, 0%, 100%, .1) 15px, transparent, transparent 30px);
+		}
+		.grid {
+			background: white;
+			background-image: linear-gradient(90deg, rgba(200, 0, 0, .5) 50%, transparent 0),
+								linear-gradient(rgba(200, 0, 0, .5) 50%, transparent 0);
+			background-size: 30px 30px, 30px 30px;
+		}
+		.grid-line {
+			background: #58a;
+			background-image: linear-gradient(90deg, white 1px, transparent 0),
+								linear-gradient(white 1px, transparent 0);
 			background-size: 30px 30px;
 		}
-		.line-bac-45deg-zz {
-			background: -webkit-linear-gradient(bottom left, #fb3 25%, #58a 0%, #58a 50%, #fb3 0%, #fb3 75%, #58a 0%);
-			background: -o-linear-gradient(bottom left, #fb3 25%, #58a 0%, #58a 50%, #fb3 0%, #fb3 75%, #58a 0%);
-			background: linear-gradient(to top right, #fb3 25%, #58a 0%, #58a 50%, #fb3 0%, #fb3 75%, #58a 0%);
-			background-size: 42px 42px;
+		.grid-line-bold {
+			background: #58a;
+			background-image: linear-gradient( white 2px, transparent 0),
+							  linear-gradient(90deg, white 2px, transparent 0),
+							  linear-gradient(hsla(0, 0%, 100%, .3) 1px, transparent 0),
+							  linear-gradient(90deg, hsla(0, 0%, 100%, .3) 1px, transparent 0);
+			background-size: 75px 75px, 75px 75px,
+							 15px 15px, 15px 15px;
 		}
-		.line-repeat-60deg {
-			background: repeating-linear-gradient(60deg, #fb3, #58a 30px);
+		.dots {
+			background: #655;
+			background-image: radial-gradient(tan 30%, transparent 0);
+			background-size: 30px 30px;
 		}
-		.line-repeat-120deg {
-			background: repeating-linear-gradient(120deg, #fb3, #58a 30px);
+		.dots-tile {
+			background: #655;
+			background-image: radial-gradient(tan 30%, transparent 0),
+							  radial-gradient(tan 30%, transparent 0);
+			background-size: 30px 30px;
+			background-position: 0 0, 15px 15px;
+		}	
+		.checkerboard-base {
+			background: #eee;
+			background-image: linear-gradient(45deg, #bbb 50%, transparent 0);
+			background-size: 30px 30px;
+		}
+		.checkerboard-base2 {
+			background: #eee;
+			background-image: linear-gradient(45deg,  transparent 75% ,#bbb 0);
+			background-size: 30px 30px;
+		}
+		.checkerboard-base3 {
+			background: #eee;
+			background-image: linear-gradient(45deg, #bbb 25%, transparent 0), 
+			                  linear-gradient(45deg,  transparent 75% ,#bbb 0);
+			background-size: 30px 30px;
+		}
+		.checkerboard-half {
+			background: #eee;
+			background-image: linear-gradient(45deg, #bbb 25%, transparent 0), 
+			                  linear-gradient(45deg,  transparent 75% ,#bbb 0);
+			background-position: 0 0, 15px 15px;
+			background-size: 30px 30px;
+		}
+		.checkerboard {
+			background: #eee;
+			background-image: linear-gradient(45deg, #bbb 25%, transparent 0), 
+			                  linear-gradient(45deg,  transparent 75% ,#bbb 0), 
+			                  linear-gradient(45deg, #bbb 25%, transparent 0), 
+			                  linear-gradient(45deg,  transparent 75% ,#bbb 0);
+			background-position: 0 0, 15px 15px, 15px 15px, 30px 30px;
+			background-size: 30px 30px;
+		}
+		.checkerboard-better {
+			background: #eee;
+			background-image: linear-gradient(45deg, rgba(0, 0, 0, .25) 25%, transparent 0, transparent 75%, rgba(0, 0, 0, .25) 0), 
+			                  linear-gradient(45deg, rgba(0, 0, 0, .25) 25%, transparent 0, transparent 75%, rgba(0, 0, 0, .25) 0) ;
+			background-position: 0 0, 15px 15px;
+			background-size: 30px 30px;
 		}
 	</style>
 </head>
 <body>
-	<div class="border-radius">
-		I have a nice subtle innerrounding , don't i look pretty?
+	<div class="demo horizontal-stripe">
 	</div>
-	<div class="demo line-bac">	
+	<div class="demo horizontal-stripe-three">
 	</div>
-	<div class="demo line-bac-2">	
+	<div class="demo vertical-stripe">
 	</div>
-	<div class="demo line-bac-half">	
+	<div class="demo vertical-stripe-three">
 	</div>
-	<div class="demo line-bac-size">	
+	<div class="demo diagonal-stripe-45deg">
 	</div>
-	<div class="demo line-bac-no-width">	
+	<div class="demo diagonal-stripe-60deg">
 	</div>
-	<div class="demo line-bac-no-width-dry">	
+	<div class="demo same-color-stripe">
 	</div>
-	<div class="demo line-bac-right">	
+	<div class="demo smale-color-stripe-better">
 	</div>
-	<div class="demo line-bac-45deg">	
+	<div class="demo grid">
 	</div>
-	<div class="demo line-bac-45deg-zz">	
+	<div class="demo grid-line">
 	</div>
-	<div class="demo line-repeat-60deg">	
+	<div class="demo grid-line-bold">
 	</div>
-	<div class="demo line-repeat-120deg">	
+	<div class="demo dots">
+	</div>
+	<div class="demo dots-tile">
+	</div>
+	<div class="demo checkerboard-base">
+	</div>
+	<div class="demo checkerboard-base2">
+	</div>
+	<div class="demo checkerboard-base3">
+	</div>
+	<div class="demo checkerboard-half">
+	</div>
+	<div class="demo checkerboard">
+	</div>
+	<div class="demo checkerboard-better">
 	</div>
 </body>
 </html>

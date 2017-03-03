@@ -639,3 +639,226 @@ where <extent-keyword> = closest-corner | closest-side | farthest-corner | farth
 | matrix3d(*n*,*n*,*n*,*n*,*n*,*n*,*n*,*n*,*n*,*n*,*n*,*n*,*n*,*n*,*n*,*n*) | 定义 3D 转换，使用 16 个值的 4x4 矩阵。 |
 
 ​	martrix矩阵的生成和计算方法可以参见[[杨名天吓](http://my.csdn.net/henren555)](http://blog.csdn.net/henren555/article/details/9699449/).
+
+
+
+# transition
+
+> 本部分内容参考[Airen的博客](http://www.w3cplus.com/blogs/airen)
+
+语法
+
+```javascript
+transition ： [<'transition-property'> || <'transition-duration'> || <'transition-timing-function'> || <'transition-delay'> [, [<'transition-property'> || <'transition-duration'> || <'transition-timing-function'> || <'transition-delay'>]]* 
+```
+
+​	transition主要包含四个属性值：执行变换的属性：transition-property,变换延续的时间：transition-duration,在延续时间段，变换的速率变化transition-timing-function,变换延迟时间transition-delay。
+
+## transition-property
+
+语法
+
+```css
+  transition-property ： none | all | [ <IDENT> ] [ ',' <IDENT> ]*
+```
+
+
+
+​	 ransition-property是用来指定当元素其中一个属性改变时执行transition效果，其主要有以下几个值：none(没有属性改变)；all（所有属性改变）这个也是其默认值；indent（元素属性名）。当其值为none时，transition马上停止执行，当指定为all时，则元素产生任何属性值变化时都将执行transition效果，ident是可以指定元素的某一个属性值。ident常见的类型如color、length、percentage、interger、number、transform、rectangle、shadow和gradient等多种类型。
+
+## **transition-duration**
+
+语法
+
+```css
+ transition-duration ： <time> [, <time>]* 
+```
+
+​	transition-duration是用来指定元素 转换过程的持续时间，取值：time为数值，单位为s（秒）或者ms(毫秒),可以作用于所有元素，包括:before和:after伪元素。其默认值是0，也就是变换时是即时的。
+
+## **transition-timing-function**
+
+语法
+
+```css
+transition-timing-function ： ease | linear | ease-in | ease-out | ease-in-out | cubic-bezier(<number>, <number>, <number>, <number>) [, ease | linear | ease-in | ease-out | ease-in-out | cubic-bezier(<number>, <number>, <number>, <number>)]* 
+```
+
+* ease：（逐渐变慢）默认值，ease函数等同于贝塞尔曲线(0.25, 0.1, 0.25, 1.0).
+* linear：（匀速），linear 函数等同于贝塞尔曲线(0.0, 0.0, 1.0, 1.0).
+* ease-in：(加速)，ease-in 函数等同于贝塞尔曲线(0.42, 0, 1.0, 1.0).
+* ease-out：（减速），ease-out 函数等同于贝塞尔曲线(0, 0, 0.58, 1.0).
+* ease-in-out：（加速然后减速），ease-in-out 函数等同于贝塞尔曲线(0.42, 0, 0.58, 1.0)
+* cubic-bezier：（该值允许你去自定义一个时间曲线）， 特定的[cubic-bezier曲线](http://en.wikipedia.org/wiki/B%C3%A9zier_curve)。 (x1, y1, x2, y2)四个值特定于曲线上点P1和点P2。所有值需在[0, 1]区域内，否则无效。
+
+##   transition-delay  
+
+语法
+
+```css
+transition-delay ： <time> [, <time>]* 
+```
+
+​	transition-delay是用来指定一个动画开始执行的时间，也就是说当改变元素属性值后多长时间开始执行transition效果，其取值：<time>为数值，单位为s（秒）或者ms(毫秒)，其使用和transition-duration极其相似，也可以作用于所有元素，包括:before和:after伪元素。 默认大小是"0"，也就是变换立即执行，没有延迟。
+
+# transition
+
+语法
+
+```css
+  @keyframes IDENT {
+     from {
+       Properties:Properties value;
+     }
+     Percentage {
+       Properties:Properties value;
+     }
+     to {
+       Properties:Properties value;
+     }
+   }
+   或者
+   @keyframes IDENT {
+      0% {
+         Properties:Properties value;
+      }
+      Percentage {
+         Properties:Properties value;
+      }
+      100% {
+         Properties:Properties value;
+      }
+    }
+```
+
+ 	动画示例
+
+```css
+@-webkit-keyframes 'wobble' {
+     0% {
+        margin-left: 100px;
+        background: green;
+     }
+     40% {
+        margin-left: 150px;
+        background: orange;
+     }
+     60% {
+        margin-left: 75px;
+        background: blue;
+     }
+     100% {
+        margin-left: 100px;
+        background: red;
+     }
+  }
+```
+
+## animation-name
+
+**语法：**
+
+```
+  animation-name: none | IDENT[,none | IDENT]*;
+
+```
+
+ 
+
+**取值说明：**
+
+​	animation-name:是用来定义一个动画的名称，其主要有两个值：IDENT是由Keyframes创建的动画名，换句话说此处的IDENT要和Keyframes中的IDENT一致，如果不一致,将不能实现任何动画效果；none为默认值，当值为none时，将没有任何动画效果。另外我们这个属性跟前面所讲的transition一样，我们可以同时附几个animation给一个元素，我们只需要用逗号“，”隔开。
+
+## animation-duration
+
+**语法：**
+
+```
+  animation-duration: <time>[,<time>]*
+
+```
+
+ 
+
+**取值说明：**
+
+animation-duration是用来指定元素播放动画所持续的时间长，取值:time为数值，单位为s （秒.）其默认值为“0”。这个属性跟transition中的[transition-duration](http://www.w3cplus.com/content/css3-transition)使用方法是一样的。
+
+## animation-timing-function
+
+**语法：**
+
+```
+   animation-timing-function:ease | linear | ease-in | ease-out | ease-in-out | cubic-bezier(<number>, <number>, <number>, <number>) [, ease | linear | ease-in | ease-out | ease-in-out | cubic-bezier(<number>, <number>, <number>, <number>)]* 
+
+```
+
+ 
+
+**取值说明：**
+
+animation-timing-function:是指元素根据时间的推进来改变属性值的变换速率，说得简单点就是动画的播放方式。他和transition中的[transition-timing-function](http://www.w3cplus.com/content/css3-transition)一样，具有以下六种变换方式：ease;ease-in;ease-in-out;linear;cubic-bezier。具体的使用方法大家可以点[这里](http://www.w3cplus.com/content/css3-transition)，查看其中transition-timing-function的使用方法。
+
+## animation-delay
+
+**语法：**
+
+```
+  animation-delay: <time>[,<time>]*
+
+```
+
+ 
+
+**取值说明：**
+
+animation-delay:是用来指定元素动画开始时间。取值为time为数值，单位为s(秒)，其默认值也是0。这个属性和[transition-delay](http://www.w3cplus.com/content/css3-transition)y使用方法是一样的。
+
+## animation-iteration-count
+
+**语法：**
+
+```
+  animation-iteration-count:infinite | <number> [, infinite | <number>]* 
+
+```
+
+ 
+
+**取值说明：**
+
+animation-iteration-count是用来指定元素播放动画的循环次数，其可以取值number为数字，其默认值为“1”；infinite为无限次数循环。
+
+## animation-direction
+
+**语法：**
+
+```
+  animation-direction: normal | alternate [, normal | alternate]* 
+
+```
+
+**取值说明：**
+
+animation-direction是用来指定元素动画播放的方向，其只有两个值，默认值为normal，如果设置为normal时，动画的每次循环都是向前播放；另一个值是alternate，他的作用是，动画播放在第偶数次向前播放，第奇数次向反方向播放。
+
+## animation-play-state
+
+**语法：**
+
+```
+   animation-play-state:running | paused [, running | paused]* 
+```
+
+**取值说明：**
+
+animation-play-state主要是用来控制元素动画的播放状态。其主要有两个值，running和paused其中running为默认值。他们的作用就类似于我们的音乐播放器一样，可以通过paused将正在播放的动画停下了，也可以通过running将暂停的动画重新播放，我们这里的重新播放不一定是从元素动画的开始播放，而是从你暂停的那个位置开始播放。另外如果暂时了动画的播放，元素的样式将回到最原始设置状态。这个属性目前很少内核支持，所以只是稍微提一下。
+
+上面我们分别介绍了animation中的各个属性的语法和取值，那么我们综合上面的内容可以给animation属性一个速记法：
+
+```
+  animation:[<animation-name> || <animation-duration> || <animation-timing-function> || <animation-delay> || <animation-iteration-count> || <animation-direction>] [, [<animation-name> || <animation-duration> || <animation-timing-function> || <animation-delay> || <animation-iteration-count> || <animation-direction>] ]* 
+
+```
+
+ 
